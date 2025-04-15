@@ -41,7 +41,4 @@ def texto():
 
 btn = ctk.CTkButton(janela,image=img, text='clique', command=texto).pack()
 
-
-
-
 janela.mainloop()

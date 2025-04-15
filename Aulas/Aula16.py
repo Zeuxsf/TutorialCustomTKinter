@@ -29,20 +29,21 @@ janela._set_appearance_mode('dark') #Existem apenas dark, light e system (é int
 #Label - Print do ctk
 ctk.CTkLabel(janela,text='Galinhas Voadoras. Aula 16', width=100,height=100).pack()
 
-#SegmentedtButton - Botão de Segmento
+#Switch - Botão de ligar e desligar
 
-def btn(value):
-    if value == 'Galinha':
-     print('Gosto de galinhas')
-    elif value == 'Ovo':
-       print('Ovo de páscoa')
-    elif value == 'Frango':
-       print('CóCóricÓ')    
+svar = ctk.StringVar(value='')
+
+def power():
+    comando = svar.get()
+    print(f'O Switch está: {comando}')
+    if comando == 'Ativado':
+        print('Modo Sexo ON')
+    elif comando == 'Desativado':
+        print('Katchau')    
     pass
 
-bot = ctk.CTkSegmentedButton(janela, values=['Ovo','Galinha','Frango'],command=btn)
-bot.pack()
-bot.set('Galinha')
+switch = ctk.CTkSwitch(janela,text='Power',command=power,variable=svar,onvalue='Ativado', offvalue='Desativado')
+switch.pack()
 
 
 janela.mainloop()
