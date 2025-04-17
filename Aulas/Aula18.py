@@ -26,21 +26,22 @@ janela.resizable(width=False, height=False)
 #Define o tema 
 janela._set_appearance_mode('dark') #Existem apenas dark, light e system (é interessante colocar o 'system' para o programa se adequar ao computador do usuário)
 
-janela.iconbitmap('./logo.ico')
-
 #Label - Print do ctk
-ctk.CTkLabel(janela,text='Galinhas Voadoras', width=100,height=100).pack()
+ctk.CTkLabel(janela,text='Galinhas Voadoras. Aula 18', width=100,height=100).pack()
 
-#Entry
-entrada = ctk.CTkEntry(janela,text_color='blue',placeholder_text='Senha')
-entrada.pack()
+#Radio Button
 
-def texto():
-    print(entrada.get())
-    entrada.delete(0, tkinter.END)
+ivar = ctk.IntVar(value=0)
+
+def btn():
+    print(ivar.get())
     pass
 
+radio = ctk.CTkRadioButton(janela,text='Masc',command=btn,variable=ivar,value=1)
+radio.pack()
 
-btn = ctk.CTkButton(janela,image=img, text='clique', command=texto).pack()
+radio2 = ctk.CTkRadioButton(janela,text='Fem',command=btn,variable=ivar,value=2)
+radio2.pack()
+
 
 janela.mainloop()

@@ -26,21 +26,18 @@ janela.resizable(width=False, height=False)
 #Define o tema 
 janela._set_appearance_mode('dark') #Existem apenas dark, light e system (é interessante colocar o 'system' para o programa se adequar ao computador do usuário)
 
-janela.iconbitmap('./logo.ico')
-
 #Label - Print do ctk
-ctk.CTkLabel(janela,text='Galinhas Voadoras', width=100,height=100).pack()
+ctk.CTkLabel(janela,text='Galinhas Voadoras. Aula 17', width=100,height=100).pack()
 
-#Entry
-entrada = ctk.CTkEntry(janela,text_color='blue',placeholder_text='Senha')
-entrada.pack()
+#Check Box
+svar = ctk.StringVar(value='')
 
-def texto():
-    print(entrada.get())
-    entrada.delete(0, tkinter.END)
+def check():
+    comando = svar.get()
+    print(f'O usuário escolheu {comando}')
     pass
 
-
-btn = ctk.CTkButton(janela,image=img, text='clique', command=texto).pack()
+CB = ctk.CTkCheckBox(janela,variable=svar, onvalue='Comida', text='comida', command=check)
+CB.pack()
 
 janela.mainloop()

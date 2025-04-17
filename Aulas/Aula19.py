@@ -26,21 +26,15 @@ janela.resizable(width=False, height=False)
 #Define o tema 
 janela._set_appearance_mode('dark') #Existem apenas dark, light e system (é interessante colocar o 'system' para o programa se adequar ao computador do usuário)
 
+#Label - Print do ctk
+ctk.CTkLabel(janela,text='Galinhas Voadoras. Aula 19', width=100,height=100).pack()
+
 janela.iconbitmap('./logo.ico')
 
-#Label - Print do ctk
-ctk.CTkLabel(janela,text='Galinhas Voadoras', width=100,height=100).pack()
+#Progress Bar - Barra de progresso
+barra = ctk.CTkProgressBar(janela)
+barra.pack()
+barra.start()
 
-#Entry
-entrada = ctk.CTkEntry(janela,text_color='blue',placeholder_text='Senha')
-entrada.pack()
-
-def texto():
-    print(entrada.get())
-    entrada.delete(0, tkinter.END)
-    pass
-
-
-btn = ctk.CTkButton(janela,image=img, text='clique', command=texto).pack()
 
 janela.mainloop()
